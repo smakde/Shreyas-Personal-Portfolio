@@ -70,5 +70,9 @@ export default {
 </script>
 
 <style scoped>
-/* Optional: style tweaks */
+@media (max-width: 599px) {
+  .v-main {
+    padding-left: 10px;
+  }
+}
 </style>
