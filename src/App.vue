@@ -40,5 +40,6 @@ nav {
 
 .nav-link.router-link-active {
   text-decoration: underline;
+  color: black;
 }
 </style>
