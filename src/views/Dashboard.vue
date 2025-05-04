@@ -9,6 +9,11 @@
       </v-col>
     </v-row>
 
+    <!-- Dark mode toggle -->
+    <v-btn @click="toggleTheme" class="mb-6" color="secondary">
+      Toggle Dark Mode
+    </v-btn>
+
     <!-- Add Habit Form -->
     <v-form @submit.prevent="addHabit">
       <v-text-field
@@ -52,16 +57,31 @@
 <script>
 export default {
   name: "DashboardView",
+
   data() {
     return {
       newHabit: "",
       habits: [],
     };
   },
+
+  computed: {
+    isDark() {
+      return this.theme.global.name.value === "dark";
+    },
+  },
+
   created() {
     const saved = localStorage.getItem("habits");
     this.habits = saved ? JSON.parse(saved) : [];
+
+    // Restore theme preference
+    const savedTheme = localStorage.getItem("habitron-theme");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      this.$vuetify.theme.global.name = savedTheme;
+    }
   },
+
   methods: {
     addHabit() {
       if (!this.newHabit.trim()) return;
@@ -75,6 +95,12 @@ export default {
     },
     updateStorage() {
       localStorage.setItem("habits", JSON.stringify(this.habits));
+    },
+    toggleTheme() {
+      const current = this.$vuetify.theme.global.name;
+      const newTheme = current === "dark" ? "light" : "dark";
+      this.$vuetify.theme.global.name = newTheme;
+      localStorage.setItem("habitron-theme", newTheme);
     },
   },
 };
