@@ -1,86 +1,78 @@
 <template>
-  <div class="dashboard">
-    <h1>Today's Habits</h1>
+  <v-container class="mt-6">
+    <v-row justify="space-between" align="center">
+      <v-col>
+        <h1 class="text-h4 font-weight-bold">Habitron Dashboard</h1>
+      </v-col>
+    </v-row>
 
-    <HabitForm @add="addHabit" />
+    <!-- Add Habit Form -->
+    <v-form @submit.prevent="addHabit">
+      <v-text-field
+        v-model="newHabit"
+        label="New Habit"
+        outlined
+        dense
+        class="mb-4"
+      />
+      <v-btn type="submit" color="primary">Add Habit</v-btn>
+    </v-form>
 
-    <div v-if="habits.length === 0" class="empty-message">
-      No habits yet. Start by adding one!
-    </div>
-
-    <ul v-else class="habit-list">
-      <li v-for="(habit, index) in habits" :key="index" class="habit-item">
-        <label>
-          <input type="checkbox" v-model="habit.completed" />
-          {{ habit.name }}
-        </label>
-        <button @click="deleteHabit(index)" class="delete-button">🗑️</button>
-      </li>
-    </ul>
-  </div>
+    <!-- Habit List -->
+    <v-row class="mt-6" dense>
+      <v-col
+        v-for="(habit, index) in habits"
+        :key="index"
+        cols="12"
+        sm="6"
+        md="4"
+      >
+        <v-card>
+          <v-card-title>
+            <v-checkbox
+              v-model="habit.completed"
+              :label="habit.name"
+              @change="updateStorage"
+            />
+          </v-card-title>
+          <v-card-actions>
+            <v-btn icon @click="deleteHabit(index)">
+              <v-icon color="red">mdi-delete</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import HabitForm from "@/components/HabitForm.vue";
-
 export default {
   name: "DashboardView",
-  components: { HabitForm },
   data() {
     return {
+      newHabit: "",
       habits: [],
     };
   },
   created() {
-    const savedHabits = localStorage.getItem("habits");
-    if (savedHabits) {
-      this.habits = JSON.parse(savedHabits);
-    }
-  },
-  watch: {
-    habits: {
-      deep: true,
-      handler(newHabits) {
-        localStorage.setItem("habits", JSON.stringify(newHabits));
-      },
-    },
+    const saved = localStorage.getItem("habits");
+    this.habits = saved ? JSON.parse(saved) : [];
   },
   methods: {
-    addHabit(name) {
-      this.habits.push({ name, completed: false });
+    addHabit() {
+      if (!this.newHabit.trim()) return;
+      this.habits.push({ name: this.newHabit.trim(), completed: false });
+      this.newHabit = "";
+      this.updateStorage();
     },
     deleteHabit(index) {
       this.habits.splice(index, 1);
+      this.updateStorage();
+    },
+    updateStorage() {
+      localStorage.setItem("habits", JSON.stringify(this.habits));
     },
   },
 };
 </script>
-
-<style scoped>
-.dashboard {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.habit-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.habit-item {
-  margin: 10px 0;
-}
-
-.empty-message {
-  font-style: italic;
-  color: #888;
-}
-.delete-button {
-  margin-left: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: red;
-  font-size: 16px;
-}
-</style>

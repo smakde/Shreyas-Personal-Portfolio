@@ -1,45 +1,72 @@
 <template>
-  <div id="app">
-    <header>
-      <nav>
-        <router-link to="/" class="nav-link">Dashboard</router-link>
-        <router-link to="/habits" class="nav-link">All Habits</router-link>
-        <router-link to="/stats" class="nav-link">Stats</router-link>
-      </nav>
-    </header>
+  <v-app>
+    <!-- Navigation bar -->
+    <v-app-bar app color="primary" dark>
+      <v-app-bar-nav-icon @click="drawer = !drawer" class="d-sm-none" />
+      <v-toolbar-title>Habitron</v-toolbar-title>
+    </v-app-bar>
 
-    <main>
+    <!-- Side Drawer -->
+    <v-navigation-drawer v-model="drawer" app temporary class="d-sm-none">
+      <v-list nav dense>
+        <v-list-item
+          v-for="item in navItems"
+          :key="item.title"
+          :to="item.route"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!-- Permanent drawer for desktop -->
+    <v-navigation-drawer app permanent class="d-none d-sm-flex" width="200">
+      <v-list nav dense>
+        <v-list-item
+          v-for="item in navItems"
+          :key="item.title"
+          :to="item.route"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!-- Main content -->
+    <v-main>
       <router-view />
-    </main>
-  </div>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
 export default {
   name: "AppRoot",
+  data() {
+    return {
+      drawer: false,
+      navItems: [
+        { title: "Dashboard", route: "/", icon: "mdi-view-dashboard" },
+        {
+          title: "All Habits",
+          route: "/habits",
+          icon: "mdi-format-list-bulleted",
+        },
+        { title: "Stats", route: "/stats", icon: "mdi-chart-bar" },
+      ],
+    };
+  },
 };
 </script>
 
 <style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  padding: 20px;
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
-  font-weight: bold;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #42b983;
-}
-
-.nav-link.router-link-active {
-  text-decoration: underline;
-  color: black;
-}
+/* Optional: style tweaks */
 </style>
