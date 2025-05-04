@@ -1,18 +1,68 @@
 <template>
-  <div class="stats">
-    <h1>Habit Stats</h1>
-    <p>Track your habit progress and streaks here.</p>
-  </div>
+  <v-container class="mt-6">
+    <h1 class="text-h4 font-weight-bold text-primary mb-6">
+      <v-icon start class="mr-2">mdi-chart-bar</v-icon>
+      Habit Stats
+    </h1>
+
+    <v-row>
+      <v-col cols="12" sm="6">
+        <v-card class="pa-4">
+          <v-card-title>Total Habits</v-card-title>
+          <v-card-text class="text-h5">{{ total }}</v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="6">
+        <v-card class="pa-4">
+          <v-card-title>Completed</v-card-title>
+          <v-card-text class="text-h5 text-success">{{
+            completed
+          }}</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col cols="12">
+        <v-card class="pa-4">
+          <v-card-title>Completion Rate</v-card-title>
+          <v-card-text class="text-h5"> {{ completionRate }}% </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: "StatsView",
+  data() {
+    return {
+      habits: [],
+    };
+  },
+  _computed: {
+    total() {
+      return this.habits.length;
+    },
+    completed() {
+      return this.habits.filter((h) => h.completed).length;
+    },
+    completionRate() {
+      return this.total === 0
+        ? 0
+        : Math.round((this.completed / this.total) * 100);
+    },
+  },
+  get computed() {
+    return this._computed;
+  },
+  set computed(value) {
+    this._computed = value;
+  },
+  created() {
+    const saved = localStorage.getItem("habits");
+    this.habits = saved ? JSON.parse(saved) : [];
+  },
 };
 </script>
-
-<style scoped>
-.stats {
-  padding: 20px;
-}
-</style>

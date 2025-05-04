@@ -26,6 +26,6 @@ export default {
 .habit-form {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 </style>
