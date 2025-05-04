@@ -26,7 +26,19 @@
       <v-col cols="12">
         <v-card class="pa-4">
           <v-card-title>Completion Rate</v-card-title>
-          <v-card-text class="text-h5"> {{ completionRate }}% </v-card-text>
+          <v-card-text class="text-h5">{{ completionRate }}%</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Chart Row -->
+    <v-row>
+      <v-col cols="12">
+        <v-card class="pa-4">
+          <v-card-title>Habit Completion Chart</v-card-title>
+          <v-card-text>
+            <Pie :data="chartData" :options="chartOptions" />
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -34,14 +46,22 @@
 </template>
 
 <script>
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
+import { Pie } from "vue-chartjs";
+
+ChartJS.register(Title, Tooltip, Legend, ArcElement);
+
 export default {
   name: "StatsView",
+  components: {
+    Pie,
+  },
   data() {
     return {
       habits: [],
     };
   },
-  _computed: {
+  computed: {
     total() {
       return this.habits.length;
     },
@@ -53,12 +73,28 @@ export default {
         ? 0
         : Math.round((this.completed / this.total) * 100);
     },
-  },
-  get computed() {
-    return this._computed;
-  },
-  set computed(value) {
-    this._computed = value;
+    chartData() {
+      return {
+        labels: ["Completed", "Incomplete"],
+        datasets: [
+          {
+            backgroundColor: ["#4caf50", "#e0e0e0"],
+            data: [this.completed, this.total - this.completed],
+          },
+        ],
+      };
+    },
+    chartOptions() {
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+        },
+      };
+    },
   },
   created() {
     const saved = localStorage.getItem("habits");
@@ -66,3 +102,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+/* Keep chart height visible */
+.v-card-text canvas {
+  max-height: 300px;
+}
+</style>
