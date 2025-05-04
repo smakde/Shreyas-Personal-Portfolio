@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="submitForm" class="habit-form">
     <input v-model="habitName" type="text" placeholder="New habit" required />
-    <button type="submit">Add Habit</button>
+    <button type="submit">Add</button>
   </form>
 </template>
 
@@ -15,10 +15,8 @@ export default {
   },
   methods: {
     submitForm() {
-      if (this.habitName.trim() !== "") {
-        this.$emit("add", this.habitName.trim());
-        this.habitName = "";
-      }
+      this.$emit("add", this.habitName.trim());
+      this.habitName = "";
     },
   },
 };
