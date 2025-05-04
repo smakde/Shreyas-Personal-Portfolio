@@ -41,6 +41,6 @@
     "jest": "^27.0.5",
     "prettier": "^2.4.1",
     "vue-cli-plugin-vuetify": "~2.5.8",
-    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
+    "webpack-plugin-vuetify": "^3.1.1"
   }
 }
