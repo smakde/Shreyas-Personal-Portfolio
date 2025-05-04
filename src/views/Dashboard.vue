@@ -2,7 +2,10 @@
   <v-container class="mt-6">
     <v-row justify="space-between" align="center">
       <v-col>
-        <h1 class="text-h4 font-weight-bold">Habitron Dashboard</h1>
+        <h1 class="text-h3 font-weight-bold text-primary mb-4">
+          <v-icon start class="mr-2">mdi-calendar-check</v-icon>
+          Habitron Dashboard
+        </h1>
       </v-col>
     </v-row>
 

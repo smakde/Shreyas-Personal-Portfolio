@@ -3,7 +3,9 @@
     <!-- Navigation bar -->
     <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer" class="d-sm-none" />
-      <v-toolbar-title>Habitron</v-toolbar-title>
+      <v-toolbar-title class="text-h5 font-weight-bold">
+        Habitron
+      </v-toolbar-title>
     </v-app-bar>
 
     <!-- Side Drawer -->
