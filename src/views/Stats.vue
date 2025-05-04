@@ -2,13 +2,13 @@
   <v-container class="mt-6">
     <h1 class="text-h4 font-weight-bold text-primary mb-6">
       <v-icon start class="mr-2">mdi-chart-bar</v-icon>
-      Habit Stats
+      Task Stats
     </h1>
 
     <v-row>
       <v-col cols="12" sm="6">
         <v-card class="pa-4">
-          <v-card-title>Total Habits</v-card-title>
+          <v-card-title>Total Tasks</v-card-title>
           <v-card-text class="text-h5">{{ total }}</v-card-text>
         </v-card>
       </v-col>
@@ -35,7 +35,7 @@
     <v-row>
       <v-col cols="12">
         <v-card class="pa-4">
-          <v-card-title>Habit Completion Chart</v-card-title>
+          <v-card-title>Tasks Completion Chart</v-card-title>
           <v-card-text>
             <Pie :data="chartData" :options="chartOptions" />
           </v-card-text>
@@ -58,15 +58,15 @@ export default {
   },
   data() {
     return {
-      habits: [],
+      tasks: [],
     };
   },
   computed: {
     total() {
-      return this.habits.length;
+      return this.tasks.length;
     },
     completed() {
-      return this.habits.filter((h) => h.completed).length;
+      return this.tasks.filter((h) => h.completed).length;
     },
     completionRate() {
       return this.total === 0
@@ -97,8 +97,8 @@ export default {
     },
   },
   created() {
-    const saved = localStorage.getItem("habits");
-    this.habits = saved ? JSON.parse(saved) : [];
+    const saved = localStorage.getItem("tasks");
+    this.tasks = saved ? JSON.parse(saved) : [];
   },
 };
 </script>

@@ -4,7 +4,7 @@
     <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer" class="d-sm-none" />
       <v-toolbar-title class="text-h5 font-weight-bold">
-        Habitron
+        Just Cache Tasks
       </v-toolbar-title>
     </v-app-bar>
 
@@ -58,8 +58,8 @@ export default {
       navItems: [
         { title: "Dashboard", route: "/", icon: "mdi-view-dashboard" },
         {
-          title: "All Habits",
-          route: "/habits",
+          title: "All Tasks",
+          route: "/tasks",
           icon: "mdi-format-list-bulleted",
         },
         { title: "Stats", route: "/stats", icon: "mdi-chart-bar" },

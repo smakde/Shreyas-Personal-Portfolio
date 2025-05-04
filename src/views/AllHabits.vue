@@ -2,27 +2,27 @@
   <v-container class="mt-6">
     <h1 class="text-h4 font-weight-bold text-primary mb-6">
       <v-icon start class="mr-2">mdi-format-list-bulleted</v-icon>
-      All Habits
+      All Tasks
     </h1>
 
     <v-alert
-      v-if="habits.length === 0"
+      v-if="tasks.length === 0"
       type="info"
       border="start"
       color="primary"
     >
-      No habits found. Add some from the Dashboard.
+      No tasks found. Add some from the Dashboard.
     </v-alert>
 
     <v-list v-else>
       <v-list-item
-        v-for="(habit, index) in habits"
+        v-for="(task, index) in tasks"
         :key="index"
-        :title="habit.name"
+        :title="task.name"
       >
         <template #prepend>
-          <v-icon :color="habit.completed ? 'green' : 'grey'">
-            {{ habit.completed ? "mdi-check-circle" : "mdi-circle-outline" }}
+          <v-icon :color="task.completed ? 'green' : 'grey'">
+            {{ task.completed ? "mdi-check-circle" : "mdi-circle-outline" }}
           </v-icon>
         </template>
       </v-list-item>
@@ -32,15 +32,15 @@
 
 <script>
 export default {
-  name: "AllHabitsView",
+  name: "AlltasksView",
   data() {
     return {
-      habits: [],
+      tasks: [],
     };
   },
   created() {
-    const saved = localStorage.getItem("habits");
-    this.habits = saved ? JSON.parse(saved) : [];
+    const saved = localStorage.getItem("tasks");
+    this.tasks = saved ? JSON.parse(saved) : [];
   },
 };
 </script>

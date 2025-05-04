@@ -11,7 +11,7 @@ const routes = [
     component: DashboardView,
   },
   {
-    path: "/habits",
+    path: "/tasks",
     name: "AllHabits",
     component: AllHabitsView,
   },

@@ -4,7 +4,7 @@
       <v-col>
         <h1 class="text-h3 font-weight-bold text-primary mb-4">
           <v-icon start class="mr-2">mdi-calendar-check</v-icon>
-          Habitron Dashboard
+          Tasks Dashboard
         </h1>
       </v-col>
     </v-row>
@@ -14,22 +14,22 @@
       Toggle Dark Mode
     </v-btn>
 
-    <!-- Add Habit Form -->
-    <v-form @submit.prevent="addHabit">
+    <!-- Add Tasks Form -->
+    <v-form @submit.prevent="addTask">
       <v-text-field
-        v-model="newHabit"
-        label="New Habit"
+        v-model="newTask"
+        label="New Tasks"
         outlined
         dense
         class="mb-4"
       />
-      <v-btn type="submit" color="primary">Add Habit</v-btn>
+      <v-btn type="submit" color="primary">Add</v-btn>
     </v-form>
 
-    <!-- Habit List -->
+    <!-- Tasks List -->
     <v-row class="mt-6" dense>
       <v-col
-        v-for="(habit, index) in habits"
+        v-for="(task, index) in tasks"
         :key="index"
         cols="12"
         sm="6"
@@ -38,13 +38,13 @@
         <v-card>
           <v-card-title>
             <v-checkbox
-              v-model="habit.completed"
-              :label="habit.name"
+              v-model="task.completed"
+              :label="task.name"
               @change="updateStorage"
             />
           </v-card-title>
           <v-card-actions>
-            <v-btn icon @click="deleteHabit(index)">
+            <v-btn icon @click="deleteTask(index)">
               <v-icon color="red">mdi-delete</v-icon>
             </v-btn>
           </v-card-actions>
@@ -60,8 +60,8 @@ export default {
 
   data() {
     return {
-      newHabit: "",
-      habits: [],
+      newTask: "",
+      tasks: [],
     };
   },
 
@@ -72,35 +72,35 @@ export default {
   },
 
   created() {
-    const saved = localStorage.getItem("habits");
-    this.habits = saved ? JSON.parse(saved) : [];
+    const saved = localStorage.getItem("tasks");
+    this.tasks = saved ? JSON.parse(saved) : [];
 
     // Restore theme preference
-    const savedTheme = localStorage.getItem("habitron-theme");
+    const savedTheme = localStorage.getItem("just-cache-task-theme");
     if (savedTheme === "dark" || savedTheme === "light") {
       this.$vuetify.theme.global.name = savedTheme;
     }
   },
 
   methods: {
-    addHabit() {
-      if (!this.newHabit.trim()) return;
-      this.habits.push({ name: this.newHabit.trim(), completed: false });
-      this.newHabit = "";
+    addTask() {
+      if (!this.newTask.trim()) return;
+      this.tasks.push({ name: this.newTask.trim(), completed: false });
+      this.newTask = "";
       this.updateStorage();
     },
-    deleteHabit(index) {
-      this.habits.splice(index, 1);
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
       this.updateStorage();
     },
     updateStorage() {
-      localStorage.setItem("habits", JSON.stringify(this.habits));
+      localStorage.setItem("tasks", JSON.stringify(this.tasks));
     },
     toggleTheme() {
       const current = this.$vuetify.theme.global.name;
       const newTheme = current === "dark" ? "light" : "dark";
       this.$vuetify.theme.global.name = newTheme;
-      localStorage.setItem("habitron-theme", newTheme);
+      localStorage.setItem("just-cache-task-theme", newTheme);
     },
   },
 };
