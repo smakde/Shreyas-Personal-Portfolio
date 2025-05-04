@@ -1,30 +1,44 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div id="app">
+    <header>
+      <nav>
+        <router-link to="/" class="nav-link">Dashboard</router-link>
+        <router-link to="/habits" class="nav-link">All Habits</router-link>
+        <router-link to="/stats" class="nav-link">Stats</router-link>
+      </nav>
+    </header>
+
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
 
-<style>
+<script>
+export default {
+  name: "AppRoot",
+};
+</script>
+
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  padding: 20px;
 }
 
 nav {
-  padding: 30px;
-}
-
-nav a {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
   font-weight: bold;
-  color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
+.nav-link {
+  text-decoration: none;
   color: #42b983;
+}
+
+.nav-link.router-link-active {
+  text-decoration: underline;
 }
 </style>
