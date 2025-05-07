@@ -2,9 +2,9 @@
   <v-app>
     <!-- Navigation bar -->
     <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon @click="drawer = !drawer" class="d-sm-none" />
+      <!-- <v-app-bar-nav-icon @click="drawer = !drawer" class="d-sm-none" /> -->
       <v-toolbar-title class="text-h5 font-weight-bold">
-        Just Cache Tasks
+        Just Cache Tasks by Shreyas Makde
       </v-toolbar-title>
     </v-app-bar>
 
@@ -34,10 +34,20 @@
           :to="item.route"
           link
         >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <div v-if="!item.external">
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </div>
+          <a v-else :href="item.url" target="_blank" rel="noopener">
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>
+              {{ item.title }}
+            </v-list-item-title>
+          </a>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -56,13 +66,25 @@ export default {
     return {
       drawer: false,
       navItems: [
-        { title: "Dashboard", route: "/", icon: "mdi-view-dashboard" },
+        { title: "Dashboard", route: "/", icon: "" },
         {
           title: "All Tasks",
           route: "/tasks",
-          icon: "mdi-format-list-bulleted",
+          icon: "",
         },
-        { title: "Stats", route: "/stats", icon: "mdi-chart-bar" },
+        { title: "Stats", route: "/stats", icon: "" },
+        {
+          title: "Resume",
+          external: true,
+          icon: "",
+          url: "/Resume.pdf",
+        },
+        {
+          title: "GitHub",
+          external: true,
+          icon: "",
+          url: "https://github.com/smakde",
+        },
       ],
     };
   },

@@ -3,7 +3,7 @@
     <v-row justify="space-between" align="center">
       <v-col>
         <h1 class="text-h3 font-weight-bold text-primary mb-4">
-          <v-icon start class="mr-2">mdi-calendar-check</v-icon>
+          <!-- <v-icon start class="mr-2">mdi-calendar-check</v-icon> -->
           Tasks Dashboard
         </h1>
       </v-col>
@@ -79,6 +79,8 @@ export default {
     const savedTheme = localStorage.getItem("just-cache-task-theme");
     if (savedTheme === "dark" || savedTheme === "light") {
       this.$vuetify.theme.global.name = savedTheme;
+    } else {
+      this.$vuetify.theme.global.name = "dark"; // Default theme
     }
   },
 

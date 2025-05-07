@@ -1,7 +1,7 @@
 <template>
   <v-container class="mt-6">
     <h1 class="text-h4 font-weight-bold text-primary mb-6">
-      <v-icon start class="mr-2">mdi-chart-bar</v-icon>
+      <!-- <v-icon start class="mr-2">mdi-chart-bar</v-icon> -->
       Task Stats
     </h1>
 
