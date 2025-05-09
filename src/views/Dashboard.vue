@@ -4,15 +4,13 @@
       <v-col>
         <h1 class="text-h3 font-weight-bold text-primary mb-4">
           <!-- <v-icon start class="mr-2">mdi-calendar-check</v-icon> -->
-          Try adding some tasks!
+          To-do List
         </h1>
+        <h5>Your own offline to do list!</h5>
+        <h5>Save this to your phone as an App!</h5>
+        <br />
       </v-col>
     </v-row>
-
-    <!-- Dark mode toggle -->
-    <v-btn @click="toggleTheme" class="mb-6" color="secondary">
-      Toggle Dark Mode
-    </v-btn>
 
     <!-- Add Tasks Form -->
     <v-form @submit.prevent="addTask">
@@ -42,12 +40,18 @@
               :label="task.name"
               @change="updateStorage"
             />
+            <p
+              @click="deleteTask(index)"
+              style="
+                cursor: pointer;
+                color: red;
+                position: relative;
+                left: 10px;
+              "
+            >
+              Remove
+            </p>
           </v-card-title>
-          <v-card-actions>
-            <v-btn icon @click="deleteTask(index)">
-              <v-icon color="red">mdi-delete</v-icon>
-            </v-btn>
-          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -74,14 +78,6 @@ export default {
   created() {
     const saved = localStorage.getItem("tasks");
     this.tasks = saved ? JSON.parse(saved) : [];
-
-    // Restore theme preference
-    const savedTheme = localStorage.getItem("just-cache-task-theme");
-    if (savedTheme === "dark" || savedTheme === "light") {
-      this.$vuetify.theme.global.name = savedTheme;
-    } else {
-      this.$vuetify.theme.global.name = "dark"; // Default theme
-    }
   },
 
   methods: {
@@ -97,12 +93,6 @@ export default {
     },
     updateStorage() {
       localStorage.setItem("tasks", JSON.stringify(this.tasks));
-    },
-    toggleTheme() {
-      const current = this.$vuetify.theme.global.name;
-      const newTheme = current === "dark" ? "light" : "dark";
-      this.$vuetify.theme.global.name = newTheme;
-      localStorage.setItem("just-cache-task-theme", newTheme);
     },
   },
 };

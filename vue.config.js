@@ -6,7 +6,7 @@ module.exports = defineConfig({
   pages: {
     index: {
       entry: "src/main.js",
-      title: "Just Cache Tasks", // 🔥 This sets the tab title
+      title: "Shreyas Makde", // 🔥 This sets the tab title
     },
   },
 

@@ -3,12 +3,10 @@
     <v-row align="center" justify="center">
       <v-col cols="12" md="4" class="text-center">
         <v-avatar size="180" class="mx-auto mb-4">
-          <img
-            src="https://media.licdn.com/dms/image/v2/C5103AQGQtRoIYtnErg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1569991502244?e=1752105600&v=beta&t=kQJmB34th-5XaOX-q-obG-dpWftSyEWXX4lJFO1eEHA"
-            alt="Shreyas Makde"
-          />
+          <img src="/dp.jpg" alt="Shreyas Makde" />
         </v-avatar>
         <h1 class="text-h3 font-weight-bold mb-2">Shreyas Makde</h1>
+        Let’s Create Something Awesome!
         <h2 class="subtitle-1 mb-4">Full-Stack Software Engineer</h2>
         <v-btn
           color="primary"
