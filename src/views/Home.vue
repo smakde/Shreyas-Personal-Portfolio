@@ -27,7 +27,7 @@
         >
       </v-col>
       <v-col cols="12" md="8">
-        <v-card outlined>
+        <v-card outlined class="skill-card">
           <v-card-title class="font-weight-bold">About Me</v-card-title>
           <v-card-text>
             <p>
@@ -96,10 +96,8 @@
           <v-card-text>
             <strong>AWS:</strong> S3, RDS, EC2, CLI, DynamoDB, CodePipeline,
             IAM, Elastic Beanstalk, Redshift, VPC, Cloud Formation, Lambda, IoT,
-            Security.<br />
-            <strong>Azure:</strong> Boards, Pipeline, Repos, Test Plans,
-            Artifacts<br />
-            <strong>GCP:</strong> Storage, Functions, Run, Firestone
+            Security.<strong>Azure:</strong> Boards, Pipeline, Repos, Test
+            Artifacts<strong>GCP:</strong> Storage, Functions, Run, Firestone
           </v-card-text>
         </v-card>
       </v-col>
@@ -124,3 +122,12 @@ export default {
   name: "HomeView",
 };
 </script>
+
+<style scoped>
+.skill-card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+</style>
