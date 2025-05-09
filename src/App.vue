@@ -2,9 +2,8 @@
   <v-app>
     <!-- Navigation bar -->
     <v-app-bar app color="primary" dark>
-      <!-- <v-app-bar-nav-icon @click="drawer = !drawer" class="d-sm-none" /> -->
       <v-toolbar-title class="text-h5 font-weight-bold">
-        Just Cache Tasks by Shreyas Makde
+        Shreyas Makde
       </v-toolbar-title>
     </v-app-bar>
 
@@ -12,14 +11,21 @@
     <v-navigation-drawer v-model="drawer" app temporary class="d-sm-none">
       <v-list nav dense>
         <v-list-item
-          v-for="item in navItems"
+          v-for="item in internalNavItems"
           :key="item.title"
           :to="item.route"
           link
         >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+        <v-list-item
+          v-for="item in externalNavItems"
+          :key="item.title + '-external'"
+          :href="item.url"
+          target="_blank"
+          rel="noopener"
+          link
+        >
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -29,25 +35,22 @@
     <v-navigation-drawer app permanent class="d-none d-sm-flex" width="200">
       <v-list nav dense>
         <v-list-item
-          v-for="item in navItems"
+          v-for="item in internalNavItems"
           :key="item.title"
           :to="item.route"
           link
         >
-          <div v-if="!item.external">
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </div>
-          <a v-else :href="item.url" target="_blank" rel="noopener">
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>
-              {{ item.title }}
-            </v-list-item-title>
-          </a>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+        <v-list-item
+          v-for="item in externalNavItems"
+          :key="item.title + '-external'"
+          :href="item.url"
+          target="_blank"
+          rel="noopener"
+          link
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -66,27 +69,22 @@ export default {
     return {
       drawer: false,
       navItems: [
-        { title: "Dashboard", route: "/", icon: "" },
-        {
-          title: "All Tasks",
-          route: "/tasks",
-          icon: "",
-        },
-        { title: "Stats", route: "/stats", icon: "" },
-        {
-          title: "Resume",
-          external: true,
-          icon: "",
-          url: "/Resume.pdf",
-        },
-        {
-          title: "GitHub",
-          external: true,
-          icon: "",
-          url: "https://github.com/smakde",
-        },
+        { title: "Home", route: "/" },
+        { title: "Dashboard", route: "/dashboard" },
+        { title: "All Tasks", route: "/tasks" },
+        { title: "Stats", route: "/stats" },
+        { title: "Resume", external: true, url: "/Resume.pdf" },
+        { title: "GitHub", external: true, url: "https://github.com/smakde" },
       ],
     };
+  },
+  computed: {
+    internalNavItems() {
+      return this.navItems.filter((item) => !item.external);
+    },
+    externalNavItems() {
+      return this.navItems.filter((item) => item.external);
+    },
   },
 };
 </script>
