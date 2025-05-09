@@ -4,7 +4,7 @@
       <v-col cols="12" md="4" class="text-center">
         <v-avatar size="180" class="mx-auto mb-4">
           <img
-            src="https://avatars.githubusercontent.com/u/209976736?s=400&u=ffdfb94b3213f99306577c90cd717015443f5f17&v=4"
+            src="https://media.licdn.com/dms/image/v2/C5103AQGQtRoIYtnErg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1569991502244?e=1752105600&v=beta&t=kQJmB34th-5XaOX-q-obG-dpWftSyEWXX4lJFO1eEHA"
             alt="Shreyas Makde"
           />
         </v-avatar>
@@ -31,10 +31,23 @@
           <v-card-title class="font-weight-bold">About Me</v-card-title>
           <v-card-text>
             <p>
-              I am a passionate Full-Stack Software Engineer with experience in
-              building scalable web, mobile, and cloud solutions. I enjoy
-              working with modern technologies and frameworks, and I am always
-              eager to learn and contribute to impactful projects.
+              I am a dedicated and innovative Full-Stack Software Engineer with
+              a strong background in designing, developing, and deploying
+              scalable web, mobile, and cloud-based applications. My expertise
+              spans a wide range of technologies and frameworks, allowing me to
+              deliver robust solutions tailored to diverse business needs. I
+              thrive in dynamic environments where I can collaborate with
+              cross-functional teams, tackle complex challenges, and
+              continuously expand my technical skill set.
+            </p>
+            <p>
+              With a passion for learning and a commitment to excellence, I stay
+              up-to-date with the latest industry trends, best practices, and
+              emerging technologies. I take pride in writing clean, maintainable
+              code and architecting systems that are both efficient and secure.
+              Whether working independently or as part of a team, I am driven by
+              a desire to create impactful software that makes a difference for
+              users and organizations alike.
             </p>
           </v-card-text>
         </v-card>

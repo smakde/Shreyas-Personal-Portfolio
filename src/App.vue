@@ -5,6 +5,16 @@
       <v-toolbar-title class="text-h5 font-weight-bold">
         Shreyas Makde
       </v-toolbar-title>
+      <v-spacer />
+      <v-btn
+        icon
+        @click="toggleTheme"
+        :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+      >
+        <v-icon>{{
+          isDark ? "mdi-weather-sunny" : "mdi-weather-night"
+        }}</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <!-- Side Drawer -->
@@ -84,6 +94,24 @@ export default {
     },
     externalNavItems() {
       return this.navItems.filter((item) => item.external);
+    },
+    isDark() {
+      return this.$vuetify.theme.global.name === "dark";
+    },
+  },
+  mounted() {
+    // Restore theme preference
+    const savedTheme = localStorage.getItem("just-cache-task-theme");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      this.$vuetify.theme.global.name = savedTheme;
+    }
+  },
+  methods: {
+    toggleTheme() {
+      const current = this.$vuetify.theme.global.name;
+      const newTheme = current === "dark" ? "light" : "dark";
+      this.$vuetify.theme.global.name = newTheme;
+      localStorage.setItem("just-cache-task-theme", newTheme);
     },
   },
 };

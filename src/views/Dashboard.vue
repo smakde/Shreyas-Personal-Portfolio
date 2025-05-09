@@ -4,7 +4,7 @@
       <v-col>
         <h1 class="text-h3 font-weight-bold text-primary mb-4">
           <!-- <v-icon start class="mr-2">mdi-calendar-check</v-icon> -->
-          Tasks Dashboard
+          Try adding some tasks!
         </h1>
       </v-col>
     </v-row>
