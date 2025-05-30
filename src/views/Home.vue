@@ -7,21 +7,22 @@
         </v-avatar>
         <h1 class="text-h3 font-weight-bold mb-2">Shreyas Makde</h1>
         Let’s Create Something Awesome!
-        <h2 class="subtitle-1 mb-4">Full-Stack Software Engineer</h2>
+        <h2 class="subtitle-1 mb-4">Senior Software Engineer</h2>
         <v-btn
-          color="primary"
-          class="mr-2"
-          :href="'/Resume.pdf'"
-          target="_blank"
-          rel="noopener"
-          >View Resume</v-btn
-        >
-        <v-btn
-          color="secondary"
+          class="button-secondary"
+          color="mr-2"
           :href="'https://github.com/smakde'"
           target="_blank"
           rel="noopener"
           >GitHub</v-btn
+        >
+        <v-btn
+          class="button-secondary"
+          color="mr-2"
+          :href="'https://github.com/smakde'"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</v-btn
         >
       </v-col>
       <v-col cols="12" md="8">
@@ -29,14 +30,13 @@
           <v-card-title class="font-weight-bold">About Me</v-card-title>
           <v-card-text>
             <p>
-              I am a dedicated and innovative Full-Stack Software Engineer with
-              a strong background in designing, developing, and deploying
-              scalable web, mobile, and cloud-based applications. My expertise
-              spans a wide range of technologies and frameworks, allowing me to
-              deliver robust solutions tailored to diverse business needs. I
-              thrive in dynamic environments where I can collaborate with
-              cross-functional teams, tackle complex challenges, and
-              continuously expand my technical skill set.
+              Full-Stack Senior Software Engineer with 10 years of expertise
+              across modern back-end, front-end, DevOps, and cloud technologies.
+              Experienced in building scalable applications, leveraging cloud
+              platforms, and implementing Web3 solutions. Strong collaborator
+              with a proven record in volunteering and customer service,
+              committed to delivering high-quality solutions in dynamic
+              environments.
             </p>
             <p>
               With a passion for learning and a commitment to excellence, I stay
@@ -57,8 +57,8 @@
         <v-card outlined>
           <v-card-title class="font-weight-bold">Back-end</v-card-title>
           <v-card-text>
-            C, C++, C#, Java, Swift, Python, Objective-C, MS SQL, ASP.NET, Core
-            .NET, MySQL Server, Node
+            C, C++, C#, Java, Swift, Python, Objective-C, MS-SQL, MySQL,
+            ASP.NET, .NET Core, Node.js
           </v-card-text>
         </v-card>
       </v-col>
@@ -66,8 +66,8 @@
         <v-card outlined>
           <v-card-title class="font-weight-bold">Front-end</v-card-title>
           <v-card-text>
-            HTML, CSS, JavaScript, J-Query, JSON, XML, AJAX, Ember.JS, Angular,
-            React, Vue.JS, Razor, AFL
+            JavaScript, jQuery, AJAX, Ember.js, Angular, React, Vue.js, Razor
+            Views, Axios, Routing Libraries (React Router, Vue Router)
           </v-card-text>
         </v-card>
       </v-col>
@@ -76,23 +76,20 @@
     <v-row class="mt-4">
       <v-col cols="12" md="6">
         <v-card outlined>
-          <v-card-title class="font-weight-bold"
-            >DevOps Technologies</v-card-title
-          >
+          <v-card-title class="font-weight-bold">DevOps</v-card-title>
           <v-card-text>
-            Power-Shell Scripting, Datadog Logs, Kubernetes, Docker Containers,
-            ELK Stack, GitHub Actions
+            PowerShell, GitHub Actions, Docker, Kubernetes, ELK Stack, Datadog
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="6">
         <v-card outlined>
           <v-card-title class="font-weight-bold"
-            >Project Methodologies</v-card-title
+            >Project Management</v-card-title
           >
           <v-card-text>
-            Agile and Scrum, JIRA, GitHub, Bitbucket, Source-Tree, Monday
-            Boards, Bamboo, Service Now
+            Agile-Scrum, JIRA, GitHub, SourceTree, Monday.com, Bamboo,
+            ServiceNow
           </v-card-text>
         </v-card>
       </v-col>
@@ -101,26 +98,20 @@
     <v-row class="mt-4">
       <v-col cols="12" md="6">
         <v-card outlined>
-          <v-card-title class="font-weight-bold"
-            >Cloud Technologies</v-card-title
-          >
+          <v-card-title class="font-weight-bold">Cloud</v-card-title>
           <v-card-text>
-            <strong>AWS:</strong> S3, RDS, EC2, CLI, DynamoDB, CodePipeline,
-            IAM, Elastic Beanstalk, Redshift, VPC, Cloud Formation, Lambda, IoT,
-            Security.<strong>Azure:</strong> Boards, Pipeline, Repos, Test
-            Artifacts<strong>GCP:</strong> Storage, Functions, Run, Firestone
+            AWS – S3, RDS, EC2, DynamoDB, Lambda, VPC, CloudFormation, Redshift,
+            IoT, Elastic Beanstalk. Azure – Boards, Pipelines, Repos, Test
+            Plans, Artifacts.
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="6">
         <v-card outlined>
-          <v-card-title class="font-weight-bold"
-            >Web3 Technologies</v-card-title
-          >
+          <v-card-title class="font-weight-bold">Web3</v-card-title>
           <v-card-text>
-            Solidity, Rust, ETH Virtual Machine, Smart Contracts, IPFS Storage,
-            Chainlink CCIP, Metamask SDK, Metamask Wallet API, ENS Domains,
-            Coinmarketcap API, DeFi-Fundamentals
+            Solidity, Rust, EVM, Smart Contracts, IPFS, Chainlink (CCIP),
+            MetaMask SDK, Wallet API, ENS, CoinMarketCap API, DeFi Fundamentals
           </v-card-text>
         </v-card>
       </v-col>
@@ -140,5 +131,17 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+/* Only apply stronger border and shadow in light mode */
+.v-theme--light .skill-card {
+  background: #fff;
+  border: 1.5px solid #d1d5db;
+  box-shadow: 0 4px 24px rgba(60, 60, 60, 0.1),
+    0 1.5px 6px rgba(60, 60, 60, 0.08);
+}
+
+.button-secondary {
+  margin: 3px;
 }
 </style>

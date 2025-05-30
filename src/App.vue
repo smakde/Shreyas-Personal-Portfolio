@@ -89,7 +89,7 @@ export default {
       drawer: false,
       navItems: [
         { title: "Home", route: "/" },
-        { title: "Try my to-do list app", route: "/dashboard" },
+        { title: "Use my free to-do template", route: "/dashboard" },
         { title: "Overview", route: "/tasks", addTab: true },
         { title: "Stats", route: "/stats", addTab: true },
       ],
