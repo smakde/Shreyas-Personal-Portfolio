@@ -19,7 +19,7 @@
         <v-btn
           class="button-secondary"
           color="mr-2"
-          :href="'https://github.com/smakde'"
+          :href="'https://linkedin.com/in/shrey1'"
           target="_blank"
           rel="noopener"
           >LinkedIn</v-btn
@@ -57,8 +57,9 @@
         <v-card outlined>
           <v-card-title class="font-weight-bold">Back-end</v-card-title>
           <v-card-text>
-            C, C++, C#, Java, Swift, Python, Objective-C, MS-SQL, MySQL,
-            ASP.NET, .NET Core, Node.js
+            Python, Go (Golang), Java, C#, Node.js, .NET Core, ASP.NET, MS-SQL,
+            MySQL, Postgres, MongoDB, Distributed Systems, System Design,
+            Scalability, Event-Driven Architecture, Parallel Processing
           </v-card-text>
         </v-card>
       </v-col>
@@ -66,8 +67,9 @@
         <v-card outlined>
           <v-card-title class="font-weight-bold">Front-end</v-card-title>
           <v-card-text>
-            JavaScript, jQuery, AJAX, Ember.js, Angular, React, Vue.js, Razor
-            Views, Axios, Routing Libraries (React Router, Vue Router)
+            React, TypeScript, Redux, HTML5, CSS3, JavaScript, Vue.js, Angular,
+            Razor Views, Ember.js, Razor Views Tailwind CSS, Webpack, Routing
+            Libraries, Blazor, Web3 front-end dApps
           </v-card-text>
         </v-card>
       </v-col>
@@ -78,7 +80,9 @@
         <v-card outlined>
           <v-card-title class="font-weight-bold">DevOps</v-card-title>
           <v-card-text>
-            PowerShell, GitHub Actions, Docker, Kubernetes, ELK Stack, Datadog
+            DevOps & Tools: GitHub Actions, Docker, Kubernetes, CI/CD, Datadog,
+            Kafka, Copilot, ELK Stack, Shell Scripting, Automated Testing, Test
+            Frameworks (Jest/RTL)
           </v-card-text>
         </v-card>
       </v-col>
@@ -88,8 +92,9 @@
             >Project Management</v-card-title
           >
           <v-card-text>
-            Agile-Scrum, JIRA, GitHub, SourceTree, Monday.com, Bamboo,
-            ServiceNow
+            Agile-Scrum, JIRA, ServiceNow, SourceTree, Automated Testing, Test
+            Frameworks (Jest/RTL), Mentorship, Strategic Planning, Performance
+            Optimization
           </v-card-text>
         </v-card>
       </v-col>
@@ -100,18 +105,20 @@
         <v-card outlined>
           <v-card-title class="font-weight-bold">Cloud</v-card-title>
           <v-card-text>
-            AWS – S3, RDS, EC2, DynamoDB, Lambda, VPC, CloudFormation, Redshift,
-            IoT, Elastic Beanstalk. Azure – Boards, Pipelines, Repos, Test
-            Plans, Artifacts.
+            AWS (S3, EC2, Lambda, RDS, CloudFormation), Azure DevOps, macOS
+            Integration, Platform Engineering, Cross-platform Development
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="6">
         <v-card outlined>
-          <v-card-title class="font-weight-bold">Web3</v-card-title>
+          <v-card-title class="font-weight-bold">
+            AI / Machine learning
+          </v-card-title>
           <v-card-text>
-            Solidity, Rust, EVM, Smart Contracts, IPFS, Chainlink (CCIP),
-            MetaMask SDK, Wallet API, ENS, CoinMarketCap API, DeFi Fundamentals
+            Python (Pandas, NumPy), Light ML with Scikit-learn, Prompt
+            Engineering, A/B Testing, UX Metrics, Experimental Design,
+            Data-driven UI optimization
           </v-card-text>
         </v-card>
       </v-col>
